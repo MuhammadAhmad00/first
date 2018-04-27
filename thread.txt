@@ -1,0 +1,75 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <pthread.h>
+
+void *sum(void * arg);
+int array[1000];
+
+
+int main()
+{
+int final=0;
+for(int i=0;i<1000;i++)
+{
+int temp;
+int j=0;
+int ret[10];
+array[i]=i;
+}
+pthread_t t1,t2,t3,t4,t5,t6,t7,t8,t9,t10;
+pthread_create(&t1,NULL,sum,0);
+pthread_create1(&t2,NULL,sum,100);
+pthread_create(&t3,NULL,sum,200);
+pthread_create(&t4,NULL,sum,300);
+pthread_create(&t5,NULL,sum,400);
+pthread_cretae(&t6,NULL,sum,500);
+pthread_create(&t7,NULL,sum,600);
+pthread_create(&t8,NULL,sum,700);
+pthread_create(&t9,NULL,sum,800);
+pthread_create(&t10,NULL,sum,900);
+pthread_join(&t1,temp);
+ret[j]=temp;
+pthread_join(&t2,temp);
+ret[++j]=temp;
+pthread_join(&t3,temp);
+ret[++j]=temp;
+pthread_join(&t4,temp);
+ret[++j]=temp;
+pthread_join(&t5,temp);
+ret[++j]=temp;
+pthread_join(&t6,temp);
+ret[++j]=temp;
+pthread_join(&t7,temp);
+ret[++j]=temp;
+pthread_join(&t8,temp);
+ret[++j]=temp;
+pthread_join(&t9,temp);
+ret[++j]=temp;
+pthread_join(&t10,temp);
+ret[++j]=temp;
+
+for(int i=0;i<10;i++)
+{
+final=final+ret[i];
+}
+
+printf("Sum  of 1000 numbers %s",final);
+
+return 0;
+
+}
+
+
+void * sum (void *arg)
+{
+int i;
+int sumation=0;
+int *new=(int*)arg+100;
+for(i= (int*)arg;i<new;i++);
+{
+sumation=sumation+array[i];
+
+}
+return NULL;
+}
+
